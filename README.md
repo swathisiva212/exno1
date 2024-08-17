@@ -21,239 +21,128 @@ STEP 5: Remove outliers using IQR
 STEP 6: Use zscore of to remove outliers
 
 # Coding and Output
-
-```py
-# Developed By: swathi.s
-# Register Number: 212223040219
-```
-<table>
-  <tr>
-    <td width=50%>
-
-
-### 1) Read and display DataFrame
-```Python
+~~~
 import pandas as pd
-df=pd.read_csv('/content/SAMPLEDS.csv')
+df=pd.read_csv("/content/SAMPLEIDS.csv")
 df
+~~~
+![Screenshot 2024-08-17 133731](https://github.com/user-attachments/assets/b1cbacc0-0f7a-43ef-9e85-ef72797ee042)
 ```
-  </td>
-  <td>
-              
-#### OUTPUT:
-
-</td>
-</tr>
-<tr>
-  <td width=50%>
-              
-### 2) Display head
-```Python
-df.head()
+df.head(6)
 ```
-  </td>
-  <td>
-              
-#### OUTPUT:
+![Screenshot 2024-08-17 134240](https://github.com/user-attachments/assets/4d527b58-809c-4bb9-9564-1bc90ab36a7f)
+~~~
+df.tail(6)
+~~~
+![tail](https://github.com/user-attachments/assets/a42a919b-9ad9-4bb5-9cc9-f50b54cc3526)
+~~~
+df.isnull()
+~~~
+![null](https://github.com/user-attachments/assets/4651e847-13ff-454a-ad14-6cfd71d9b985)
+~~~
+df.notnull()
+~~~
+![Screenshot 2024-08-17 134448](https://github.com/user-attachments/assets/236a7d9f-3551-4f6d-9176-b7f1128d4038)
 
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/7e8163c1-7aff-42aa-a9d9-a9be834b0125)
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 3) Display tail
-```Python
-df.tail()
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
-
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/31eb0ada-9761-499d-8cf2-31e043eac8e0)
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 4) Info of datafram
-```Python
-df.info()
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
-
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/22cd4eee-0b3f-4a2f-9ff7-c5fea86d5703)
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 5) Describe about the dataframe
-```Python
-df.describe()
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
-
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/28cfed13-f10d-4062-8b88-3da61848e96c)
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 6) Shape of the datafram
-```Python
-df.shape
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
-
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/5814ae95-6244-4dd0-bb1b-43bf0bd5583b)
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 7) Checking tha NUll values
-```Python
-df.isnull().sum()
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
-
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/1c352767-c32d-4d18-9fce-3e600d7af552)
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 8) Drop the Null values
-```Python
-x=df.dropna(how='any')
-x
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
-
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/fdff72dd-a19b-4c72-b492-6fed41b35f54)
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 9) Drop the Null values in Total
-```Python
-tot=df.dropna(subset=['TOTAL'],how='any')
-tot
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
-
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/d21f329a-35aa-4cd7-912f-99fe36f258b7)
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 10) FIll the Null values
-```Python
+~~~
+df.dropna(axis=0)
+~~~
+![Screenshot 2024-08-17 134455](https://github.com/user-attachments/assets/86a150fb-a742-4580-b1f5-43782f062184)
+~~~
 df.fillna(0)
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
+~~~
+![Screenshot 2024-08-17 134510](https://github.com/user-attachments/assets/03b83136-dea5-4824-abe2-a2ea66c164ff)
+~~~
+print(df.shape)
+~~~
+![Screenshot 2024-08-17 134518](https://github.com/user-attachments/assets/8fd5d9d6-06f8-4dc3-8089-076c47b8d20d)
+~~~
+df.describe()
+~~~
+![Screenshot 2024-08-17 134600](https://github.com/user-attachments/assets/832427ba-9a92-4105-a180-1b3f8d531915)
+# IQR:
+~~~
+import pandas as pd
+ir=pd.read_csv("/content/iris.csv")
+ir
+~~~
+![Screenshot 2024-08-17 134610](https://github.com/user-attachments/assets/e63f896a-8f97-4b28-875c-27ad7b3b19f9)
+~~~
+ir.describe()
+~~~
+![Screenshot 2024-08-17 134619](https://github.com/user-attachments/assets/8ef8ed5a-dfa6-4087-a5dc-d3bc2eec0302)
+~~~
+import seaborn as sns
+sns.boxplot(x='sepal_width',data=ir)
+~~~
+![Screenshot 2024-08-17 134627](https://github.com/user-attachments/assets/ee55a266-e105-4417-984b-6f31fb6d93c7)
+~~~
+c1=ir.sepal_width.quantile(0.25)
+c3=ir.sepal_width.quantile(0.75)
+iq=c3-c1
+print(c3)
+~~~
+![Screenshot 2024-08-17 134638](https://github.com/user-attachments/assets/417615b6-b710-48dd-bc0a-4fd444ed16ba)
+~~~
+rid=ir[((ir.sepal_width<(c1-1.5*iq))|(ir.sepal_width>(c3+1.5*iq)))]
+rid['sepal_width']
+~~~
+![Screenshot 2024-08-17 134645](https://github.com/user-attachments/assets/425cef6d-cd8e-45a5-b21b-c0ad113a8002)
+~~~
+delid=ir[~((ir.sepal_width<(c1-1.5*iq))|(ir.sepal_width>(c3+1.5*iq)))]
+delid
+~~~
+![Screenshot 2024-08-17 134653](https://github.com/user-attachments/assets/11c04a31-a571-4b06-acca-20d4d48ca429)
+~~~
+sns.boxplot(x='sepal_width',data=delid)
+~~~
+![Screenshot 2024-08-17 134659](https://github.com/user-attachments/assets/2fc13aea-8934-45ac-bb3a-bd8f209bd7f4)
+# Z-SCORE
+~~~
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import scipy.stats as stats
 
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/8d35ac83-889f-451e-bc63-78fbcf44fb04)
-</td>
-</tr>
-<tr>
-  <td width=50%>
+dataset=pd.read_csv('/content/heights.csv')
+dataset
+~~~
+![Screenshot 2024-08-17 134706](https://github.com/user-attachments/assets/b244041b-da3b-4fce-91a7-3b3179b3a2f0)
+~~~
+df=pd.read_csv('/content/heights.csv')
+q1=df['height'].quantile(0.25)
+q2=df['height'].quantile(0.5)
+q3=df['height'].quantile(0.75)
 
-### 11) Finding the mean value
-```Python
-mn=df.TOTAL.mean()
-mn
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
-
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/489a50a1-eb88-449c-8d7e-bff5e42c5af0)
-
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 12) Fill Null value with Mean value
-```Python
-df.head()
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
-![Screenshot 2024-02-23 090324](https://github.com/MAHESWARAN2004/Expno1/assets/119478181/a0a06f86-f464-4d33-935a-a00fbd2d3ef4)
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 13) Final output
-```Python
-for x in df.index:
-  if df.loc[x,"AVG"]>100:
-    df.drop(x,inplace=True)
+iqr=q3-q1
+iqr
+~~~
+![Screenshot 2024-08-17 134712](https://github.com/user-attachments/assets/d54639ac-fcda-4ac9-a987-5d4e69d1a228)
+~~~
+low=q1-1.4*iqr
+low
+~~~
+![Screenshot 2024-08-17 134717](https://github.com/user-attachments/assets/bf609cba-fcbd-498f-a9c1-1654c92a2926)
+~~~
+high=q3+1.5*iqr
+high
+~~~
+![Screenshot 2024-08-17 134724](https://github.com/user-attachments/assets/2a8e87c6-fa56-496b-ad49-e79e34ed4898)
+~~~
+df1 = df[((df['height'] >=low)& (df['height'] <=high))]
+df1
+~~~
+![Screenshot 2024-08-17 134729](https://github.com/user-attachments/assets/1b5addd2-825c-487f-be73-d674e843c8cc)
+~~~
+z=np.abs(stats.zscore(df['height']))
+z
+~~~
+![Screenshot 2024-08-17 134737](https://github.com/user-attachments/assets/2381afe9-604c-4c42-861e-2a70f7d15321)
+~~~
+df1=df[z<3]
 df
-```
-  </td>
-  <td>
-              
-#### OUTPUT:
-
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/fb8391ca-d62a-4e26-a1aa-a15d27a884f9)
-
-</td>
-</tr>
-<tr>
-  <td width=50%>
-
-### 14)Cut and paste portion of image
-```Python
-     import cv2
-     image=cv2.imread('Deepika.jpg',1)
-     image=cv2.resize(image,(400,400))
-     tag =image[150:200,110:160]
-     image[110:160,150:200] = tag
-     cv2.imshow('partimage1',image)
-     cv2.waitKey(0)
-     cv2.destroyAllWindows()
-```
-  </td>
-  <td>
-
-#### OUTPUT:
-
-![deepikasrinivasanDIPT1](https://github.com/deepikasrinivasans/COLOR_CONVERSIONS_OF-IMAGE/assets/119393935/4c37d6dd-4392-4b61-abcc-b7dfe50a886f)
- </td>
- </tr>
-</table>
+~~~
+![Screenshot 2024-08-17 134745](https://github.com/user-attachments/assets/ff944025-0b51-4b58-863d-caa02148c45c)
 
 # Result
-The data clearning has beeen done successfully.
+ Thus we have cleaned the data and removed the outliers by detection using IQR and Z-score method.       
