@@ -42,7 +42,6 @@ df
               
 #### OUTPUT:
 
-![image](https://github.com/LATHIKESHWARAN/exno1/assets/119393556/13c8033c-7cdb-4b51-bcce-1bf186ca33a7)
 </td>
 </tr>
 <tr>
